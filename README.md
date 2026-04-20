@@ -1,2 +1,0 @@
-# linkminl
-Scalable URL Shortener 
