@@ -1,13 +1,6 @@
-import express from "express";
-import { sendData } from "@/app.js";
+import app from "@/app.js";
+import { env } from "@/config/env.js";
 
-const app = express();
-
-app.get("/", (_req, res) => {
-  const data = sendData();
-  res.send(data);
-});
-
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+app.listen(env.PORT, () => {
+  console.log(`server running on ${env.PORT}`);
 });

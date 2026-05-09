@@ -1,0 +1,24 @@
+import { Request, Response } from "express";
+import { getGoogleAuthUrl, loginWithGoogle } from "@/services/auth.js";
+
+export const googleAuth = async (_req: Request, res: Response) => {
+  const url = getGoogleAuthUrl();
+
+  res.redirect(url);
+};
+
+export const googleCallback = async (req: Request, res: Response) => {
+  try {
+    const code = req.query.code as string;
+
+    const data = await loginWithGoogle(code);
+
+    res.json(data);
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      message: "Google auth failed",
+    });
+  }
+};
