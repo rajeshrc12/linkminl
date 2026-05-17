@@ -1,11 +1,15 @@
 import { Button } from "@/components/ui/button";
 
 const App = () => {
+  const handleLogin = () => {
+    window.location.href = "http://localhost:3000/auth/google";
+  };
+
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-      <Button>Add</Button>
-    </h1>
+    <div>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Button onClick={handleLogin}>Login with Google</Button>
+    </div>
   );
 };
 

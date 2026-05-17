@@ -13,7 +13,13 @@ export const googleCallback = async (req: Request, res: Response) => {
 
     const data = await loginWithGoogle(code);
 
-    res.json(data);
+    res.cookie("accessToken", data.accessToken, {
+      httpOnly: true,
+      secure: false, // true in production (HTTPS)
+      sameSite: "lax",
+    });
+
+    res.redirect("http://localhost:5173/dashboard");
   } catch (error) {
     console.error(error);
 
