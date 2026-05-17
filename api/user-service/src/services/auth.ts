@@ -1,3 +1,4 @@
+import { prisma } from "@/lib/prisma.js";
 import { googleClient } from "@/services/google.js";
 import { generateAccessToken } from "@/utils/jwt.js";
 
@@ -33,7 +34,19 @@ export const loginWithGoogle = async (code: string) => {
     avatar: payload.picture,
   };
 
-  // TODO: save/find user in database
+  let dbUser = await prisma.user.findUnique({
+    where: { email: payload.email },
+  });
+
+  if (!dbUser) {
+    dbUser = await prisma.user.create({
+      data: {
+        email: payload.email || "",
+        name: payload.name || "",
+        image: payload.picture,
+      },
+    });
+  }
 
   const accessToken = generateAccessToken({
     sub: user.googleId,

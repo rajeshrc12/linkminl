@@ -9,4 +9,5 @@ export const env = {
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET!,
 
   JWT_SECRET: process.env.JWT_SECRET!,
+  DATABASE_URL: process.env.DATABASE_URL!,
 };
