@@ -49,8 +49,7 @@ export const loginWithGoogle = async (code: string) => {
   }
 
   const accessToken = generateAccessToken({
-    sub: user.googleId,
-    email: user.email,
+    id: dbUser.id,
   });
 
   return {
