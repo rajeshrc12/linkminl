@@ -16,6 +16,6 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/", urlRoutes);
+app.use("/url", urlRoutes);
 
 export default app;

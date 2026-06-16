@@ -1,9 +1,10 @@
 // hooks/useUser.ts
-import api from "@/lib/api";
+
+import userApi from "@/lib/userApi";
 import { useQuery } from "@tanstack/react-query";
 
 const getUser = async () => {
-  const res = await api.get("/user");
+  const res = await userApi.get("/user");
   return res.data;
 };
 
