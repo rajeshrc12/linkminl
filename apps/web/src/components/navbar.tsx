@@ -1,4 +1,4 @@
-import Profile from "@/routes/dashboard/profile";
+import Profile from "@/components/profile";
 
 const Navbar = () => {
   return (
