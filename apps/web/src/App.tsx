@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 const App = () => {
   const handleLogin = () => {
-    window.location.href = "http://localhost:5173/dashboard";
+    window.location.href = "http://localhost:3000/auth/google";
   };
 
   return (
