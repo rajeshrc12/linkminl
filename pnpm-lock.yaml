@@ -18,6 +18,55 @@ importers:
         specifier: 5.9.2
         version: 5.9.2
 
+  apps/url-resolver-service:
+    dependencies:
+      '@repo/db':
+        specifier: workspace:*
+        version: link:../../packages/database
+      cookie-parser:
+        specifier: ^1.4.7
+        version: 1.4.7
+      cors:
+        specifier: ^2.8.6
+        version: 2.8.6
+      express:
+        specifier: ^5.2.1
+        version: 5.2.1
+      jsonwebtoken:
+        specifier: ^9.0.3
+        version: 9.0.3
+      sqids:
+        specifier: ^0.3.0
+        version: 0.3.0
+    devDependencies:
+      '@types/cookie-parser':
+        specifier: ^1.4.10
+        version: 1.4.10(@types/express@5.0.6)
+      '@types/cors':
+        specifier: ^2.8.19
+        version: 2.8.19
+      '@types/express':
+        specifier: ^5.0.6
+        version: 5.0.6
+      '@types/jsonwebtoken':
+        specifier: ^9.0.10
+        version: 9.0.10
+      '@types/node':
+        specifier: ^22.15.3
+        version: 22.15.3
+      dotenv:
+        specifier: ^17.4.2
+        version: 17.4.2
+      tsup:
+        specifier: ^8.5.1
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.15)(tsx@4.22.4)(typescript@6.0.3)
+      tsx:
+        specifier: ^4.22.4
+        version: 4.22.4
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+
   apps/url-shortener-service:
     dependencies:
       '@repo/db':

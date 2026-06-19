@@ -1,3 +1,4 @@
+import { env } from "@/config/env";
 import { useUrls } from "@/hooks/useUrls";
 import type { Url } from "@repo/db";
 import { HiOutlineArrowTurnDownRight } from "react-icons/hi2";
@@ -26,12 +27,12 @@ const UrlList = () => {
             >
               <div className="font-medium text-gray-900">Untitled</div>
               <a
-                href={`https://linkminl.in/${url.shortCode}`}
+                href={`${env.WEB_URL}/${url.shortCode}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-semibold text-blue-600 hover:underline"
               >
-                linkminl.in/{url.shortCode}
+                {env.WEB_URL}/{url.shortCode}
               </a>
 
               <div className="flex items-center gap-2 text-sm text-gray-500">

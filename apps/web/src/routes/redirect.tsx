@@ -1,11 +1,19 @@
+import { useEffect } from "react";
 import { useParams } from "react-router";
+import { useShortCode } from "@/hooks/useShortCode";
 
 const Redirect = () => {
   const { code } = useParams();
 
-  console.log(code); // "abcd" for /abcd
+  const { data } = useShortCode(code);
 
-  return <div>Code: {code}</div>;
+  useEffect(() => {
+    if (data?.original) {
+      window.location.replace("https://" + data.original);
+    }
+  }, [data]);
+
+  return null;
 };
 
 export default Redirect;

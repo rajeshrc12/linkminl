@@ -1,7 +1,8 @@
+import { env } from "@/config/env";
 import axios from "axios";
 
 const shortenerApi = axios.create({
-  baseURL: "http://localhost:3001",
+  baseURL: env.SHORTENER_API_URL,
   withCredentials: true, // important to send cookies
 });
 

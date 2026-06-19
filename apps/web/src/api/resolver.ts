@@ -1,13 +1,13 @@
 import { env } from "@/config/env";
 import axios from "axios";
 
-const userApi = axios.create({
-  baseURL: env.USER_API_URL,
+const resolverApi = axios.create({
+  baseURL: env.RESOLVER_API_URL,
   withCredentials: true, // important to send cookies
 });
 
 // Response interceptor to handle 401 globally
-userApi.interceptors.response.use(
+resolverApi.interceptors.response.use(
   (response) => response,
   async (error) => {
     console.log(error);
@@ -18,4 +18,4 @@ userApi.interceptors.response.use(
   },
 );
 
-export default userApi;
+export default resolverApi;

@@ -15,6 +15,7 @@ import {
   HiOutlineClipboardDocument,
   HiOutlineLink,
 } from "react-icons/hi2";
+import { env } from "@/config/env";
 
 const UrlForm = () => {
   const [value, setValue] = useState("");
@@ -23,9 +24,7 @@ const UrlForm = () => {
   const [loading, setLoading] = useState(false);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(
-      `https://linkminl.in/${url?.shortCode}`,
-    );
+    await navigator.clipboard.writeText(`${env.WEB_URL}/${url?.shortCode}`);
 
     setCopied(true);
 
@@ -85,12 +84,12 @@ const UrlForm = () => {
                     <HiOutlineLink className="h-5 w-5 text-blue-600 shrink-0" />
 
                     <a
-                      href={`https://linkminl.in/${url.shortCode}`}
+                      href={`${env.WEB_URL}/${url.shortCode}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-medium text-blue-600 hover:underline truncate"
                     >
-                      linkminl.in/{url.shortCode}
+                      {env.WEB_URL}/{url.shortCode}
                     </a>
                   </div>
 
