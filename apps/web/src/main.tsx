@@ -8,6 +8,7 @@ import App from "./App.tsx";
 import Dashboard from "@/routes/dashboard/page.tsx";
 import UrlForm from "@/routes/dashboard/url-form.tsx";
 import UrlList from "@/routes/dashboard/url-list.tsx";
+import Redirect from "@/routes/redirect.tsx";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         Component: UrlList,
       },
     ],
+  },
+  {
+    path: "/:code",
+    Component: Redirect,
   },
 ]);
 
