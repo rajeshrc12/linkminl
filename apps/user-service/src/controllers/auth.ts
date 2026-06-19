@@ -28,3 +28,15 @@ export const googleCallback = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const logout = async (_req: Request, res: Response) => {
+  res.clearCookie("accessToken", {
+    httpOnly: true,
+    secure: false, // true in production
+    sameSite: "lax",
+  });
+
+  res.status(200).json({
+    message: "Logged out successfully",
+  });
+};
