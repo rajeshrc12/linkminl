@@ -22,3 +22,20 @@ export const shortUrl = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const getAllUrls = async (req: Request, res: Response) => {
+  try {
+    const user = req?.user as User;
+
+    const urls = await prisma.url.findMany({
+      where: { userId: user.id },
+    });
+    res.json(urls);
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      message: "Error while generating Url Code",
+    });
+  }
+};
