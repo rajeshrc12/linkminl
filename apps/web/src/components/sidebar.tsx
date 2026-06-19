@@ -16,7 +16,9 @@ const Sidebar = () => {
   return (
     <aside className="w-64 border-r bg-background h-screen p-4">
       <div className="mb-8 flex items-center gap-2 px-2">
-        <h1 className="text-xl font-bold">LinkMinl</h1>
+        <Link to={"/"}>
+          <h1 className="text-xl font-bold">LinkMinl</h1>
+        </Link>
       </div>
       <div className="flex flex-col gap-5">
         <Link to={"/dashboard/create"}>
