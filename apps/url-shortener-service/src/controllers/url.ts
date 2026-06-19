@@ -18,7 +18,7 @@ export const shortUrl = async (req: Request, res: Response) => {
     console.error(error);
 
     res.status(500).json({
-      message: "User not found",
+      message: "Error while generating Url Code",
     });
   }
 };
