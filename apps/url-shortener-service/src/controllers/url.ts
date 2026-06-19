@@ -10,8 +10,9 @@ export const shortUrl = async (req: Request, res: Response) => {
     const user = req?.user as User;
 
     counter++;
+    const shortCode = encodeId(counter);
     const urlResponse = await prisma.url.create({
-      data: { original: url, shortCode: encodeId(counter), userId: user.id },
+      data: { original: url, shortCode, userId: user.id },
     });
     res.json(urlResponse);
   } catch (error) {
