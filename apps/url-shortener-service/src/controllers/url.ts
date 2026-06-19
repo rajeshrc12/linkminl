@@ -1,10 +1,10 @@
-import { decodeId, encodeId } from "@/utils/url";
+import { encodeId } from "@/utils/url";
 import { prisma, User } from "@repo/db";
 import { Request, Response } from "express";
 
 let counter = 0;
 
-export const shortUrl = async (req: Request, res: Response) => {
+export const createShortCode = async (req: Request, res: Response) => {
   try {
     const { url } = req.body;
     const user = req?.user as User;

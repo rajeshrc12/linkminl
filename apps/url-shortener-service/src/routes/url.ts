@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { getAllUrls, shortUrl } from "@/controllers/url";
+import { getAllUrls, createShortCode } from "@/controllers/url";
 
 const router = Router();
 
-router.post("/", shortUrl);
+router.post("/", createShortCode);
 router.get("/", getAllUrls);
 
 export default router;
