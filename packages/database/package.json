@@ -9,13 +9,15 @@
     "db:migrate": "prisma migrate dev",
     "db:reset": "prisma migrate reset",
     "db:deploy": "prisma migrate deploy",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "db:truncate": "pnpm tsx src/scripts/truncate.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "prisma": "^7.8.0"
+    "prisma": "^7.8.0",
+    "tsx": "^4.22.4"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",
