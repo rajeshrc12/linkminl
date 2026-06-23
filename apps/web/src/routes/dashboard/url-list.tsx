@@ -25,7 +25,7 @@ const UrlList = () => {
               key={url.id}
               className="bg-white rounded-lg border p-4 flex flex-col gap-2 shadow-sm"
             >
-              <div className="font-medium text-gray-900">Untitled</div>
+              <div className="font-medium text-gray-900">{url.title}</div>
               <a
                 href={`${env.WEB_URL}/${url.shortCode}`}
                 target="_blank"

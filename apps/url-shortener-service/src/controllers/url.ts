@@ -6,13 +6,13 @@ let counter = 0;
 
 export const createShortCode = async (req: Request, res: Response) => {
   try {
-    const { url } = req.body;
+    const { url, title } = req.body;
     const user = req?.user as User;
 
     counter++;
     const shortCode = encodeId(counter);
     const urlResponse = await prisma.url.create({
-      data: { original: url, shortCode, userId: user.id },
+      data: { original: url, shortCode, userId: user.id, title },
     });
     res.json(urlResponse);
   } catch (error) {

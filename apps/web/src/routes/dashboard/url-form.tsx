@@ -19,6 +19,7 @@ import { env } from "@/config/env";
 
 const UrlForm = () => {
   const [value, setValue] = useState("");
+  const [title, setTitle] = useState("Untitled");
   const [url, setUrl] = useState<Url>();
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -36,6 +37,7 @@ const UrlForm = () => {
     setLoading(true);
     const response = await shortenerApi.post("/url", {
       url: value,
+      title,
     });
     if (response.status === 200) {
       setUrl(response.data);
@@ -49,6 +51,13 @@ const UrlForm = () => {
         <h3 className="text-3xl">Create new link</h3>
         <div className="flex flex-col bg-white p-3 shadow rounded-2xl">
           <form action={sendUrl} className="flex flex-col gap-2">
+            <Input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              type="text"
+              placeholder="enter title"
+              required
+            />
             <Input
               value={value}
               onChange={(e) => setValue(e.target.value)}
